@@ -23,23 +23,28 @@ public class Demo2Application {
 		AuthorMapper authorMapper = applicationContext.getBean(AuthorMapper.class);
 		BookMapper bookMapper = applicationContext.getBean(BookMapper.class);
 
-		Book book1 = new Book("Book1");
-		Book book2 = new Book("Book2");
-		Book book3 = new Book("Book3");
-		List<Book> books = Arrays.asList(book1, book2, book3);
-
 		Author author1 = new Author("author1");
 		Author author2 = new Author("author2");
 		List<Author> authors = Arrays.asList(author1, author2);
 
-		authorMapper.saveAll(authors);
-
-		book1.addAuthor(author1);
-		book2.addAuthor(author2);
-		book3.addAuthor(author1);
-		book3.addAuthor(author2);
+		Book book1 = new Book("Book1");
+		Book book2 = new Book("Book2");
+		Book book3 = new Book("Book3");
+		List<Book> books = Arrays.asList(book1, book2, book3);	
 
 		bookMapper.saveAll(books);
+
+		// book1.addAuthor(author1);
+		// book2.addAuthor(author2);
+		// book3.addAuthor(author1);
+		// book3.addAuthor(author2);
+
+		author1.addBook(book1);
+		author1.addBook(book3);
+		author2.addBook(book2);
+		author2.addBook(book3);
+
+		authorMapper.saveAll(authors);
 	}
 
 	@Bean
