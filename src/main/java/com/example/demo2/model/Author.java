@@ -9,8 +9,11 @@ import javax.persistence.*;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
     private String name;
+    private int bookId;
 
     @ManyToMany
     @JoinTable(
@@ -21,11 +24,16 @@ public class Author {
     )
     private List<Book> bookList = new ArrayList<>();
 
-    public Author(String name) {
-        this.name = name;
-    }
+    // public Author(String name) {
+    //     this.name = name;
+    // }
 
-    public Integer getId() {
+    // public Author(String name, int bookId) {
+    //     this.name = name;
+    //     this.bookId = bookId;
+    // }
+
+    public Long getId() {
         return id;
     }
 
@@ -33,7 +41,11 @@ public class Author {
         return name;
     }
 
-    public void setId(Integer id) {
+    public Integer getBookId() {
+        return bookId;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -43,5 +55,9 @@ public class Author {
 
     public void addBook(Book book) {
         bookList.add(book);
+    }
+
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
     }
 }

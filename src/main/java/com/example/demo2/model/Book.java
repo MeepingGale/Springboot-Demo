@@ -8,18 +8,20 @@ import javax.persistence.*;
 @Table(name = "book", schema = "public")
 public class Book {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+    @Column(name = "name")
     private String name;
 
     @ManyToMany(mappedBy = "bookList")
     private List<Author> authorList = new ArrayList<>();
 
-    public Book(String name) {
-        this.name = name;
-    }
+    // public Book(String name) {
+    //     this.name = name;
+    // }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -27,7 +29,7 @@ public class Book {
         return name;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

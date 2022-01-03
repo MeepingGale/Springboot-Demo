@@ -29,12 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/")
-                .permitAll()
-                .antMatchers("/foods")
-                .hasAnyAuthority("Admin")
-                .antMatchers("/foods")
+                .antMatchers("/addFood")
                 .hasAnyAuthority("Owner")
+                //.permitAll()
+                // .antMatchers("/foods")
+                // .hasAnyAuthority("Admin")
+                // .antMatchers("/foods")
+                // .hasAnyAuthority("Owner")
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -1,15 +1,10 @@
-package com.example.demo2.mapper;
+package com.example.demo2.service;
 
 import java.util.ArrayList;
 
 import com.example.demo2.model.Book;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
-
-@Mapper
-@Repository
-public interface BookMapper {
+public interface BookService {
     ArrayList<Book> getAllBooks();
     Book getBookById(int id);
     int addNewBook(Book book);

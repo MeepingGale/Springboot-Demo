@@ -3,8 +3,8 @@ package com.example.demo2;
 import java.util.Arrays;
 import java.util.List;
 
-import com.example.demo2.mapper.AuthorMapper;
-import com.example.demo2.mapper.BookMapper;
+import com.example.demo2.mapper.AuthorRepository;
+import com.example.demo2.mapper.BookRepository;
 import com.example.demo2.model.Author;
 import com.example.demo2.model.Book;
 
@@ -18,33 +18,32 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Demo2Application {
 
+	public static ConfigurableApplicationContext applicationContext;
+	public static AuthorRepository authorMapper;
+	public static BookRepository bookMapper;
+
 	public static void main(String[] args) {
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(Demo2Application.class, args);
-		AuthorMapper authorMapper = applicationContext.getBean(AuthorMapper.class);
-		BookMapper bookMapper = applicationContext.getBean(BookMapper.class);
+		applicationContext = SpringApplication.run(Demo2Application.class, args);
+		authorMapper = applicationContext.getBean(AuthorRepository.class);
+		bookMapper = applicationContext.getBean(BookRepository.class);
 
-		Author author1 = new Author("author1");
-		Author author2 = new Author("author2");
-		List<Author> authors = Arrays.asList(author1, author2);
+		// Author author1 = new Author("author1");
+		// Author author2 = new Author("author2");
+		// List<Author> authors = Arrays.asList(author1, author2);
 
-		Book book1 = new Book("Book1");
-		Book book2 = new Book("Book2");
-		Book book3 = new Book("Book3");
-		List<Book> books = Arrays.asList(book1, book2, book3);	
+		// Book book1 = new Book("Book1");
+		// Book book2 = new Book("Book2");
+		// Book book3 = new Book("Book3");
+		// List<Book> books = Arrays.asList(book1, book2, book3);	
 
-		bookMapper.saveAll(books);
+		// bookMapper.saveAll(books);
 
-		// book1.addAuthor(author1);
-		// book2.addAuthor(author2);
-		// book3.addAuthor(author1);
-		// book3.addAuthor(author2);
+		// author1.addBook(book1);
+		// author1.addBook(book3);
+		// author2.addBook(book2);
+		// author2.addBook(book3);
 
-		author1.addBook(book1);
-		author1.addBook(book3);
-		author2.addBook(book2);
-		author2.addBook(book3);
-
-		authorMapper.saveAll(authors);
+		// authorMapper.saveAll(authors);
 	}
 
 	@Bean

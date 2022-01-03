@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo2.mapper.AuthorMapper">
+    <select id="getAllAuthors" resultType="com.example.demo2.model.Author">
+        SELECT * FROM public."author"
+    </select>
+    <select id="getAuthorById" resultType="com.example.demo2.model.Author">
+        SELECT * FROM public."author" WHERE id = #{id} ORDER BY id
+    </select>
+    <insert id="addNewAuthor" parameterType="com.example.demo2.model.Author">
+        INSERT INTO public."author"("name")
+        VALUES (#{name});
+    </insert>
+    <update id="updateExistingAuthor" parameterType="com.example.demo2.model.Author">
+        UPDATE public."author"
+        <set>
+            <if test="name != null">
+                    name = #{name}
+                </if>
+        </set>
+        WHERE
+        id = #{id}
+    </update>
+    <delete id="deleteExistingAuthor" parameterType="int">
+        DELETE FROM public."author"
+        WHERE id = #{id}
+    </delete>
+</mapper>
