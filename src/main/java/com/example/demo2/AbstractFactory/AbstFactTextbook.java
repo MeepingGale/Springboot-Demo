@@ -1,12 +1,12 @@
-package com.example.demo2.Factory;
+package com.example.demo2.AbstractFactory;
 
-public class Storybook extends Book {
+public class AbstFactTextbook extends AbstFactBook {
 
     private long id;
     private String name;
     private String type;
 
-    public Storybook(long id, String name, String type) {
+    public AbstFactTextbook(long id, String name, String type) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -26,4 +26,6 @@ public class Storybook extends Book {
     public String getType() {
         return type;
     }
+    
 }
+

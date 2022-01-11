@@ -1,5 +1,5 @@
 package com.example.demo2.Adapter;
 
-public class Food {
+public class AdaptBook {
     
 }

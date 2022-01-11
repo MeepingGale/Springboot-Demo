@@ -1,6 +1,6 @@
-package com.example.demo2.AbstractFactory;
+package com.example.demo2.Factory;
 
-public abstract class Book {
+public abstract class FactBook {
     public abstract long getId();
     public abstract String getName();
     public abstract String getType();

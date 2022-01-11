@@ -1,12 +1,12 @@
 package com.example.demo2.Builder;
 
-public class Book {
+public class BuildBook {
     private long id;
     private String name;
     private String type;
     private boolean isPublished;
 
-    private Book(BookBuilder builder) {
+    private BuildBook(BookBuilder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.type = builder.type;
@@ -46,8 +46,8 @@ public class Book {
             return this;
         }
 
-        public Book build() {
-            return new Book(this);
+        public BuildBook build() {
+            return new BuildBook(this);
         }
     }
 }
