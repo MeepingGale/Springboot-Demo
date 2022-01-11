@@ -17,10 +17,6 @@ public class Book {
     @ManyToMany(mappedBy = "bookList")
     private List<Author> authorList = new ArrayList<>();
 
-    // public Book(String name) {
-    //     this.name = name;
-    // }
-
     public Long getId() {
         return id;
     }

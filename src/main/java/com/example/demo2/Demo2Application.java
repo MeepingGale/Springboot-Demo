@@ -1,12 +1,6 @@
 package com.example.demo2;
 
 import java.util.Arrays;
-import java.util.List;
-
-import com.example.demo2.mapper.AuthorRepository;
-import com.example.demo2.mapper.BookRepository;
-import com.example.demo2.model.Author;
-import com.example.demo2.model.Book;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,13 +13,14 @@ import org.springframework.context.annotation.Bean;
 public class Demo2Application {
 
 	public static ConfigurableApplicationContext applicationContext;
-	public static AuthorRepository authorMapper;
-	public static BookRepository bookMapper;
+	// public static AuthorRepository authorMapper;
+	// public static BookRepository bookMapper;
 
 	public static void main(String[] args) {
-		applicationContext = SpringApplication.run(Demo2Application.class, args);
-		authorMapper = applicationContext.getBean(AuthorRepository.class);
-		bookMapper = applicationContext.getBean(BookRepository.class);
+		//applicationContext = 
+		SpringApplication.run(Demo2Application.class, args);
+		// authorMapper = applicationContext.getBean(AuthorRepository.class);
+		// bookMapper = applicationContext.getBean(BookRepository.class);
 
 		// Author author1 = new Author("author1");
 		// Author author2 = new Author("author2");

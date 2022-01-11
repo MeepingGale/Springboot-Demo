@@ -1,9 +1,9 @@
-package com.example.demo2.mapper;
+// package com.example.demo2.mapper;
 
-import com.example.demo2.model.Author;
+// import com.example.demo2.model.Author;
 
-import org.springframework.data.repository.CrudRepository;
+// import org.springframework.data.repository.CrudRepository;
 
-public interface AuthorRepository extends CrudRepository<Author,Integer> {
+// public interface AuthorRepository extends CrudRepository<Author,Integer> {
     
-}
+// }

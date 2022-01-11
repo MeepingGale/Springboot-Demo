@@ -1,9 +1,9 @@
-package com.example.demo2.mapper;
+// package com.example.demo2.mapper;
 
-import com.example.demo2.model.Book;
+// import com.example.demo2.model.Book;
 
-import org.springframework.data.repository.CrudRepository;
+// import org.springframework.data.repository.CrudRepository;
 
-public interface BookRepository extends CrudRepository<Book,Integer> {
+// public interface BookRepository extends CrudRepository<Book,Integer> {
     
-}
+// }
