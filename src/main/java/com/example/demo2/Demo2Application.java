@@ -2,43 +2,58 @@ package com.example.demo2;
 
 import java.util.Arrays;
 
+import com.example.demo2.AbstractFactory.AbstFactBook;
+import com.example.demo2.AbstractFactory.AbstFactBookFactory;
+import com.example.demo2.AbstractFactory.AbstFactStorybookFactory;
+import com.example.demo2.Adapter.AdaptBook;
+import com.example.demo2.Adapter.AdaptBookAdapter;
+import com.example.demo2.Adapter.AdaptBookObjAdapterImpl;
+import com.example.demo2.Adapter.AdaptFood;
+import com.example.demo2.Builder.BuildBook;
+import com.example.demo2.Factory.FactBook;
+import com.example.demo2.Factory.FactBookFactory;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class Demo2Application {
 
-	public static ConfigurableApplicationContext applicationContext;
-	// public static AuthorRepository authorMapper;
-	// public static BookRepository bookMapper;
-
 	public static void main(String[] args) {
-		//applicationContext = 
 		SpringApplication.run(Demo2Application.class, args);
-		// authorMapper = applicationContext.getBean(AuthorRepository.class);
-		// bookMapper = applicationContext.getBean(BookRepository.class);
 
-		// Author author1 = new Author("author1");
-		// Author author2 = new Author("author2");
-		// List<Author> authors = Arrays.asList(author1, author2);
+		AbstFactBook afb = AbstFactBookFactory.getBook(new AbstFactStorybookFactory(1, "Life of Pi", "Storybook"));
+		System.out.println("Abstract Factory Pattern [" + afb.toString() + "]");
 
-		// Book book1 = new Book("Book1");
-		// Book book2 = new Book("Book2");
-		// Book book3 = new Book("Book3");
-		// List<Book> books = Arrays.asList(book1, book2, book3);	
+		FactBook fb = FactBookFactory.getBook(2, "Hello World!", "Textbook");
+		System.out.println("Factory Pattern [" + fb.toString() + "]");
 
-		// bookMapper.saveAll(books);
+		BuildBook bb = new BuildBook.BookBuilder(3, "Java is Lava", "Storybook").setIsPublished(false).build();
+		System.out.println("Builder Pattern [" + bb.toString() + "]");
 
-		// author1.addBook(book1);
-		// author1.addBook(book3);
-		// author2.addBook(book2);
-		// author2.addBook(book3);
+		AdaptBookAdapter sockAdapter = new AdaptBookObjAdapterImpl();
+		AdaptFood adaptFood = getPrice(sockAdapter, 0);
+		AdaptFood adaptFood2 = getPrice(sockAdapter, 1);
+		AdaptFood adaptFood3 = getPrice(sockAdapter, 2);
+		System.out.println("Adapter Pattern (Original - 0) [" + adaptFood.toString() + "]");
+		System.out.println("Adapter Pattern (Discounted - 1) [" + adaptFood2.toString() + "]");
+		System.out.println("Adapter Pattern (Inflated - 2) [" + adaptFood3.toString() + "]");
+	}
 
-		// authorMapper.saveAll(authors);
+	private static AdaptFood getPrice(AdaptBookAdapter aBookAdapter, int i) {
+		switch (i) {
+			case 0:
+				return aBookAdapter.getOriginalPrice();
+			case 1:
+				return aBookAdapter.getDiscountedPrice();
+			case 2:
+				return aBookAdapter.getInfatedPrice();
+			default:
+				return null;
+		}
 	}
 
 	@Bean
@@ -50,7 +65,7 @@ public class Demo2Application {
 			String[] beanNames = ctx.getBeanDefinitionNames();
 			Arrays.sort(beanNames);
 			// for (String beanName : beanNames) {
-			// 	System.out.println(beanName);
+			// System.out.println(beanName);
 			// }
 
 		};

@@ -29,6 +29,11 @@ public class BuildBook {
         return isPublished;
     }
 
+    @Override
+    public String toString() {
+        return "Id= " + this.getId() + ", Name= " + this.getName() + ", Type= " + this.getType();
+    }
+
     public static class BookBuilder {
         private long id;
         private String name;

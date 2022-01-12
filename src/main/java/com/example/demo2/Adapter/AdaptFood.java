@@ -14,4 +14,9 @@ public class AdaptFood {
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    @Override
+    public String toString() {
+        return "Price= " + this.getPrice();
+    }
 }
