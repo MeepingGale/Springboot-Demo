@@ -2,16 +2,10 @@ package com.example.demo2;
 
 import java.util.Arrays;
 
-import com.example.demo2.AbstractFactory.AbstFactBook;
-import com.example.demo2.AbstractFactory.AbstFactBookFactory;
-import com.example.demo2.AbstractFactory.AbstFactStorybookFactory;
-import com.example.demo2.Adapter.AdaptBook;
-import com.example.demo2.Adapter.AdaptBookAdapter;
-import com.example.demo2.Adapter.AdaptBookObjAdapterImpl;
-import com.example.demo2.Adapter.AdaptFood;
-import com.example.demo2.Builder.BuildBook;
-import com.example.demo2.Factory.FactBook;
-import com.example.demo2.Factory.FactBookFactory;
+import com.example.demo2.AbstractFactory.*;
+import com.example.demo2.Adapter.*;
+import com.example.demo2.Builder.*;
+import com.example.demo2.Factory.*;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -43,8 +37,8 @@ public class Demo2Application {
 		System.out.println("Adapter Pattern (Inflated - 2) [" + adaptFood3.toString() + "]");
 	}
 
-	private static AdaptFood getPrice(AdaptBookAdapter aBookAdapter, int i) {
-		switch (i) {
+	private static AdaptFood getPrice(AdaptBookAdapter aBookAdapter, int num) {
+		switch (num) {
 			case 0:
 				return aBookAdapter.getOriginalPrice();
 			case 1:
